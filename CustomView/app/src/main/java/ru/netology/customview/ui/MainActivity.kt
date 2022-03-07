@@ -18,10 +18,10 @@ class MainActivity : AppCompatActivity() {
                 500f
             )
 
-                view.animate()
-                .rotation(360F)
-                .setDuration(2100)
-                .start()
+               // view.animate()
+               // .rotation(360F)
+               // .setDuration(2100)
+               // .start()
         },3000L)
     }
 }

@@ -123,11 +123,11 @@ class StatsView @JvmOverloads constructor(
         for ((index, datum) in data.withIndex()) {
             val angle = 360F * datum
             paint.color = colors.getOrNull(index) ?: randomColor()
-            canvas.drawArc(oval, startFrom, angle * progress, false, paint)
+            canvas.drawArc(oval, startFrom + (progress * 360), angle * progress, false, paint)
             startFrom += angle
         }
         paint.color = colors[0]
-        canvas.drawArc(oval, -90F, 1F, false, paint)
+        canvas.drawArc(oval, -90F + (progress * 360), 1F, false, paint)
 
         canvas.drawText(
             "%.2f%%".format(data.sum() * 100),
@@ -145,7 +145,7 @@ class StatsView @JvmOverloads constructor(
         }
         progress = 0F
 
-        valueAnimator = ValueAnimator.ofFloat(0.2F, 1F).apply {
+        valueAnimator = ValueAnimator.ofFloat(0F, 1F).apply {
             addUpdateListener { anim ->
                 progress = anim.animatedValue as Float
                 invalidate()
