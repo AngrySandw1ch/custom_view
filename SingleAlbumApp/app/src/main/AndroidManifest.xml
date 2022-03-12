@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SingleAlbumApp">
         <activity
-            android:name=".AppActivity"
+            android:name=".ui.AppActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
